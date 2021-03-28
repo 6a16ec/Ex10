@@ -39,52 +39,6 @@ class MyStack {
         delete this->data[this->size - 1];
         this->size -= 1;
     }
-//    void resize(std::size_t size) {
-//        if (size < my_size) {
-//            for (std::size_t i = size; i < my_size; ++i) {
-//                my_data[i] = T{};
-//            }
-//        } else if (size > my_size) {
-//            if (size > my_capacity) {
-//                my_capacity = size;
-//                T* tmp = new T[my_capacity];
-//
-//                for (std::size_t i = 0; i < my_size; ++i) {
-//                    tmp[i] = my_data[i];
-//                }
-//
-//                delete[] my_data;
-//                my_data = tmp;
-//            }
-//        }
-//        my_size = size;
-//    }
-//
-//
-//    void reserve(std::size_t new_cap){
-//        if(new_cap > my_capacity){
-//            T* new_data = new T[new_cap];
-//            for(std::size_t i = 0; i < new_cap; ++i){
-//                new_data[i] = i < my_size ? my_data[i] : T{};
-//            }
-//            delete[] my_data;
-//            my_data = new_data;
-//            my_capacity = new_cap;
-//        }
-//    }
-//
-//    void reverse(){
-//        for(std::size_t i = 0; i < my_size / 2; ++i){
-//            std::size_t j = (my_size - 1) - i;
-//            T temp = my_data[i];
-//            my_data[i] = my_data[j];
-//            my_data[j] = temp;
-//        }
-//    }
-//
-//    std::size_t size() const {
-//        return my_size;
-//    }
 
  private:
     std::size_t size;

@@ -19,25 +19,48 @@ class MyStack {
         this->size = 0;
     }
 
-    void push_back(const T& value) {
-        if (this->capacity == this->size) {
-            this->capacity = std::max((std::size_t)1, 2 * this->capacity);
-            T* new_data = new T[this->capacity];
-//            for (std::size_t i = 0; i < this->size; ++i) {
-//                new_data[i] = this->data[i];
-//            }
+    bool isEmpty() const {
+        if (this->size > 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
 
+    T getHead() const {
+        return this->data[this->size - 1];
+    }
+
+    void push(const T& new_value) {
+        if (this->size == this->capacity) {
+            this->capacity *= 2;
+            if (this->capacity == 0) {
+                this->capacity = 1;
+            }
+            T* new_data = new T[this->capacity];
+            for (std::size_t i = 0; i < this->size; ++i) {
+                new_data[i] = this->data[i];
+            }
             delete[] this->data;
             this->data = new_data;
         }
-
-        this->data[this->size] = value;
-        ++this->size;
+        this->data[this->size] = new_value;
+        this->size += 1;
     }
-    void pop_back() {
+
+    T pop() {
         assert(this->size > 0);
-        delete this->data[this->size - 1];
+        T value = this->data[this->size - 1];
         this->size -= 1;
+        return value;
+    }
+
+    void print() const {
+        std::cout << "Size " << this->size << ": ";
+        for (std::size_t i = 0; i < this->size; ++i) {
+            std:: cout << this->data[i] << ' ';
+        }
+        std::cout << std::endl;
     }
 
  private:

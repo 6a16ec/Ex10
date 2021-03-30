@@ -55,5 +55,8 @@ std::string infix2postfix(std::string infix) {
     while (!stack.isEmpty()) {
         postfix.append(std::string() + stack.pop() + ' ');
     }
+    if (postfix[postfix.size() - 1] == ' ') {
+        postfix.pop_back();
+    }
     return postfix;
 }
